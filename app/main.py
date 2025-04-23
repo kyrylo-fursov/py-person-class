@@ -20,8 +20,12 @@ def create_person_list(people: list) -> list:
         person = Person.people[person_dict["name"]]
         if "wife" in person_dict and person_dict["wife"] is not None:
             person.wife = Person.people[person_dict["wife"]]
+        else:
+            delattr(person, "wife")
 
         if "husband" in person_dict and person_dict["husband"] is not None:
             person.husband = Person.people[person_dict["husband"]]
+        else:
+            delattr(person, "husband")
 
     return person_list
